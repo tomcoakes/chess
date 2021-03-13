@@ -1,0 +1,28 @@
+table {
+  margin: 0 auto;
+}
+
+td {
+  border: 1px solid black;
+  width: 60px;
+  height: 60px;
+}
+
+.cell {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2rem;
+  color: rgb(212, 212, 212);
+}
+
+.row:nth-of-type(2n + 1) {
+  .cell:nth-of-type(2n + 1) {
+    background-color: black;
+  }
+}
+
+.row:nth-of-type(2n) {
+  .cell:nth-of-type(2n) {
+    background-color: black;
+  }
+}

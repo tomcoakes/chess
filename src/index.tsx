@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './client/App'
+import Game from './client/Game'
 
-ReactDOM.render(<App/>, document.getElementById('app'))
+ReactDOM.render(<Game/>, document.getElementById('app'))

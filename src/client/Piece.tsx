@@ -1,6 +1,12 @@
 import React from 'react'
 
-export const Piece = ({ color, type, location }) => {
+interface PieceProps {
+  color: string
+  type: string
+  location: string
+}
+
+export const Piece = ({ color, type, location }: PieceProps) => {
   return (
     <div className={`piece ${color} ${false ? 'move-mode' : ''}`}>
       <p>{color}</p>

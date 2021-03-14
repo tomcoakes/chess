@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Board from './Board'
 
 export default () => {
-  const [gameIsActive, setGameIsActive] = useState(false)
+  const [gameIsActive] = useState(false)
 
   return (
     <>

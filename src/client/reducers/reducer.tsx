@@ -1,10 +1,10 @@
-import React, { useReducer } from 'react'
-import { GameStateContext, pieceStartingLocations } from '../contexts/GameStateContext'
+import React, { FC, ReducerState, useReducer } from 'react'
+import { GameStateContext, startingLocations } from '../contexts/GameStateContext'
 
 export const Store = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, {
     globalMoveMode: false,
-    pieceLocations: pieceStartingLocations,
+    pieceLocations: startingLocations,
   })
   return (
     <GameStateContext.Provider value={{ state, dispatch }}>{children}</GameStateContext.Provider>

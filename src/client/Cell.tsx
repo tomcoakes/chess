@@ -1,9 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { GameStateContext } from './contexts/GameStateContext'
 import { Piece } from './Piece'
 
-export const Cell = ({ column, row }: { column: string; row: string }) => {
+interface CellProps {
+  column: string
+  row: string
+}
+
+export const Cell = ({ column, row }: CellProps) => {
   const { state, dispatch } = useContext(GameStateContext)
+
+  const cellContainsPiece = (): boolean => state.pieceLocations[`${column}${row}`]
 
   return (
     <td
@@ -14,7 +21,7 @@ export const Cell = ({ column, row }: { column: string; row: string }) => {
         dispatch({ type: 'TOGGLE_GLOBAL_MOVE_MODE' })
       }}
     >
-      {state.pieceLocations[`${column}${row}`] ? (
+      {cellContainsPiece() ? (
         <Piece
           type={state.pieceLocations[`${column}${row}`].type}
           color={state.pieceLocations[`${column}${row}`].color}

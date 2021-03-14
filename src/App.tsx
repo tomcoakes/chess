@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import ReactDOM from 'react-dom'
 import Game from './client/Game'
 import { Store } from './client/reducers/reducer'

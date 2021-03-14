@@ -69,3 +69,8 @@ export interface Positions {
   g8: true
   h8: true
 }
+
+export interface GameState {
+  globalMoveMode: boolean
+  pieceLocations: { [key in keyof Positions]?: Piece | null }
+}

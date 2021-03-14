@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react'
-import { Positions, Piece } from '../typings'
+import { GameState } from '../typings'
 
-export const pieceStartingLocations: { [key in keyof Positions]?: Piece | null } = {
+export const startingLocations: GameState['pieceLocations'] = {
   a1: { type: 'rook', color: 'white' },
   b1: { type: 'knight', color: 'white' },
   c1: { type: 'bishop', color: 'white' },
@@ -69,9 +69,9 @@ export const pieceStartingLocations: { [key in keyof Positions]?: Piece | null }
 }
 
 export const GameStateContext = React.createContext<{
-  state: { globalMoveMode: boolean; pieceLocations: { [key in keyof Positions]?: Piece } }
+  state: GameState
   dispatch: Dispatch<any>
 }>({
-  state: { globalMoveMode: false, pieceLocations: pieceStartingLocations },
+  state: { globalMoveMode: false, pieceLocations: startingLocations },
   dispatch: () => null,
 })

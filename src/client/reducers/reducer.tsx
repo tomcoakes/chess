@@ -4,7 +4,7 @@ import { GameState } from '../typings'
 
 interface StoreAction {
   type: string
-  payload: { moveFrom: string }
+  payload: { moveFrom: string; moveTo: string }
 }
 
 export const Store = ({ children }) => {
@@ -33,6 +33,29 @@ const Reducer = (state: GameState, action: StoreAction) => {
           [action.payload.moveFrom]: {
             ...state.pieceLocations[action.payload.moveFrom],
             inMoveMode: !state.pieceLocations[action.payload.moveFrom].inMoveMode,
+          },
+        },
+      }
+    case 'ATTEMPT_MOVE':
+      console.log('>>> action: ', action)
+
+      const pieceToMove = Object.entries(state.pieceLocations).find((location) => {
+        return location[1]?.inMoveMode === true
+      })[1]
+
+      const moveFrom = Object.entries(state.pieceLocations).find((location) => {
+        return location[1]?.inMoveMode === true
+      })[0]
+
+      return {
+        ...state,
+        globalMoveMode: !state.globalMoveMode,
+        pieceLocations: {
+          ...state.pieceLocations,
+          [moveFrom]: null,
+          [action.payload.moveTo]: {
+            ...pieceToMove,
+            inMoveMode: false,
           },
         },
       }

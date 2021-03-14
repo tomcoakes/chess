@@ -20,6 +20,10 @@ export const Cell = ({ column, row }: CellProps) => {
         if (cellState !== null) {
           dispatch({ type: 'TOGGLE_GLOBAL_MOVE_MODE', payload: { moveFrom: column + row } })
         }
+
+        if (cellState === null && state.globalMoveMode === true) {
+          dispatch({ type: 'ATTEMPT_MOVE', payload: { moveTo: column + row } })
+        }
       }}
     >
       {cellState !== null ? (

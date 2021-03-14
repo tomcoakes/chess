@@ -1,8 +1,8 @@
 import React from 'react'
-import { usePieceLocations } from "./hooks/usePieceLocations"
+import { usePieceLocations } from './hooks/usePieceLocations'
 import { Piece } from './Piece'
 
-export const Cell = (column: string, row: string) => {
+export const Cell = ({ column, row }: { column: string; row: string }) => {
   const pieceLocations = usePieceLocations()
 
   return (

@@ -10,22 +10,25 @@ interface CellProps {
 export const Cell = ({ column, row }: CellProps) => {
   const { state, dispatch } = useContext(GameStateContext)
 
-  const cellContainsPiece = (): boolean => state.pieceLocations[`${column}${row}`]
+  const cellState = state.pieceLocations[`${column}${row}`]
 
   return (
     <td
       id={`${column}${row}`}
       className="cell"
       onClick={() => {
-        console.log('>>> globalMoveMode: ', state.globalMoveMode)
-        dispatch({ type: 'TOGGLE_GLOBAL_MOVE_MODE' })
+        console.log('>>> globalMoveMode before click: ', state.globalMoveMode)
+        if (cellState !== null) {
+          dispatch({ type: 'TOGGLE_GLOBAL_MOVE_MODE', payload: column + row})
+        }
       }}
     >
-      {cellContainsPiece() ? (
+      {cellState !== null ? (
         <Piece
-          type={state.pieceLocations[`${column}${row}`].type}
-          color={state.pieceLocations[`${column}${row}`].color}
+          type={cellState.type}
+          color={cellState.color}
           location={column + row}
+          inMoveMode={cellState.inMoveMode}
         />
       ) : (
         column + row

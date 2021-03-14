@@ -1,6 +1,7 @@
 export interface Piece {
   type: 'pawn' | 'king' | 'queen' | 'rook' | 'bishop' | 'knight'
   color: 'white' | 'black'
+  inMoveMode: boolean
 }
 
 export interface Positions {

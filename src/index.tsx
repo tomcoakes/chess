@@ -1,5 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import Game from './client/Game'
+import { Store } from './client/reducers/reducer'
 
-ReactDOM.render(<Game/>, document.getElementById('app'))
+const Index = () => {
+  return (
+    <Store>
+      <Game />
+    </Store>
+  )
+}
+
+ReactDOM.render(<Index />, document.getElementById('app'))

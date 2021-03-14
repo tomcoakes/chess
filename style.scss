@@ -33,6 +33,10 @@ td {
   color: rgb(212, 212, 212);
 }
 
+.move-mode {
+  background-color: yellow;
+}
+
 .row:nth-of-type(2n + 1) {
   .cell:nth-of-type(2n + 1) {
     background-color: black;

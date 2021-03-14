@@ -17,9 +17,8 @@ export const Cell = ({ column, row }: CellProps) => {
       id={`${column}${row}`}
       className="cell"
       onClick={() => {
-        console.log('>>> globalMoveMode before click: ', state.globalMoveMode)
         if (cellState !== null) {
-          dispatch({ type: 'TOGGLE_GLOBAL_MOVE_MODE', payload: column + row})
+          dispatch({ type: 'TOGGLE_GLOBAL_MOVE_MODE', payload: { moveFrom: column + row } })
         }
       }}
     >

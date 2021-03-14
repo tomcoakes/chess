@@ -70,7 +70,7 @@ export const startingLocations: GameState['pieceLocations'] = {
 
 export const GameStateContext = React.createContext<{
   state: GameState
-  dispatch: Dispatch<any>
+  dispatch: Dispatch<{ type: string; payload: { moveFrom: string } }>
 }>({
   state: { globalMoveMode: false, pieceLocations: startingLocations },
   dispatch: () => null,

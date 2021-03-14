@@ -15,6 +15,24 @@ td {
   color: rgb(212, 212, 212);
 }
 
+.piece {
+  font-size: 15px;
+  line-height: 1px;
+  border-radius: 20px;
+  overflow: auto;
+  border: 5px solid;
+}
+
+.white {
+  background-color: white;
+  color: rgb(68, 68, 68);
+}
+
+.black {
+  background-color: black;
+  color: rgb(212, 212, 212);
+}
+
 .row:nth-of-type(2n + 1) {
   .cell:nth-of-type(2n + 1) {
     background-color: black;

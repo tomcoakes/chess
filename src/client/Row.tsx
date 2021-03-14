@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Cell } from './Cell'
 
 export default ({ number, className }: { number: string; className: string }) => {
   return (
@@ -12,14 +13,5 @@ export default ({ number, className }: { number: string; className: string }) =>
       {Cell('g', number)}
       {Cell('h', number)}
     </tr>
-  )
-}
-
-const Cell = (column: string, row: string) => {
-  return (
-    <td id={`${column}${row}`} className="cell">
-      {column}
-      {row}
-    </td>
   )
 }
